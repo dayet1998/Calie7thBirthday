@@ -1,0 +1,357 @@
+:root {
+  --pink-100: #FFE4E6;
+  --pink-200: #FDC1D8;
+  --pink-300: #F8C8DC;
+  --pink-400: #FBB6CE;
+  --pink-500: #F472B6;
+  --pink-600: #EC4899;
+  --pink-gold: #F59E0B;
+  --cream: #FFF8F0;
+  --text-dark: #831843;
+  --text-light: #BE185D;
+}
+
+/* Pure Pink Princess Theme */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  /* Pure Pink gradient */
+  background: linear-gradient(135deg, 
+    var(--pink-100) 0%, 
+    var(--pink-200) 20%, 
+    var(--pink-300) 40%, 
+    var(--pink-400) 60%, 
+    var(--pink-200) 80%, 
+    var(--pink-100) 100%);
+  
+  background-attachment: fixed;
+  position: relative;
+  font-family: 'Playfair Display', serif;
+  overflow-x: hidden;
+}
+
+/* 💕 Pink Sparkles */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, var(--pink-500), transparent),
+    radial-gradient(2px 2px at 40px 70px, var(--pink-600), transparent),
+    radial-gradient(1px 1px at 90px 40px, var(--pink-400), transparent),
+    radial-gradient(1px 1px at 130px 80px, var(--pink-300), transparent),
+    radial-gradient(2px 2px at 160px 30px, var(--pink-500), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: sparkle 15s linear infinite;
+  opacity: 0.5;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes sparkle {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-200px); }
+}
+
+/* 💖 Pink Floating Hearts */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 50% 20%, var(--pink-600), transparent),
+    radial-gradient(1px 1px at 30% 60%, var(--pink-500), transparent),
+    radial-gradient(1px 1px at 80% 80%, var(--pink-400), transparent);
+  background-repeat: repeat;
+  background-size: 250px 200px;
+  animation: float 20s ease-in-out infinite;
+  opacity: 0.4;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(120deg); }
+  66% { transform: translateY(-8px) rotate(240deg); }
+}
+
+/* Hero Image - Pink Princess Frame */
+.hero-image {
+  width: clamp(280px, 85vw, 400px);
+  height: clamp(400px, 42.5vw, 200px);
+  margin: 0 auto clamp(20px, 5vw, 40px) auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 40px rgba(244, 114, 182, 0.5),
+    0 0 30px rgba(252, 182, 206, 0.4),
+    inset 0 2px 10px rgba(255, 255, 255, 0.8);
+  position: relative;
+  border: 4px solid var(--pink-500);
+  background: linear-gradient(45deg, var(--pink-400), var(--pink-600), var(--pink-300)) border-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+  border-radius: 16px;
+}
+
+.hero-image:hover img {
+  transform: scale(1.08);
+}
+
+/* Pink Glow Ring */
+.hero-image::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  background: conic-gradient(from 0deg, transparent 0deg, var(--pink-500) 90deg, transparent 180deg);
+  border-radius: 25px;
+  z-index: -1;
+  animation: rotate 3s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(10px, 3vw, 30px);
+  min-height: calc(100vh - clamp(140px, 42.5vw, 200px) - clamp(20px, 5vw, 40px));
+}
+
+.envelope-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: clamp(280px, 85vw, 400px);
+  width: 100%;
+}
+
+.envelope {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  max-width: clamp(280px, 85vw, 400px);
+  position: relative;
+  cursor: pointer;
+  margin-bottom: clamp(15px, 4vw, 30px);
+}
+
+/* Pink Princess Envelope */
+.base {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, var(--cream), var(--pink-100));
+  border-radius: 0 0 25px 25px;
+  box-shadow: 
+    0 25px 50px rgba(252, 182, 206, 0.5),
+    0 10px 25px rgba(248, 200, 220, 0.3),
+    inset 0 2px 8px rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  border: 3px solid var(--pink-400);
+}
+
+/* Pink Flap */
+.flap {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, var(--pink-300), var(--pink-400));
+  clip-path: polygon(0 0, 100% 0, 50% 60%);
+  transform-origin: top;
+  transition: transform 1.2s ease;
+  z-index: 3;
+  border: 3px solid var(--pink-500);
+  box-shadow: 0 8px 20px rgba(244, 114, 182, 0.4);
+}
+
+/* Pink Heart Seal */
+.flower {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(60px, 20vw, 90px);
+  height: clamp(60px, 20vw, 90px);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, 
+    var(--pink-400), 
+    var(--pink-500), 
+    var(--pink-600), 
+    var(--pink-400));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 15px 35px rgba(252, 182, 206, 0.6),
+    0 0 30px rgba(244, 114, 182, 0.5),
+    inset 0 2px 10px rgba(255, 255, 255, 0.9);
+  z-index: 4;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.flower::before {
+  content: "💕";
+  font-size: clamp(26px, 7vw, 42px);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.flower {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hide-flower {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
+}
+
+/* Pink Princess Text */
+.base .names {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  text-align: center;
+  color: var(--text-dark);
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+  padding: 0 10px;
+  width: 90%;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9);
+}
+
+.base .names .line1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(14px, 4vw, 20px);
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, var(--pink-400), var(--pink-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 
+    0 2px 4px rgba(0,0,0,0.2),
+    0 0 12px rgba(252, 182, 206, 0.8);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.base .names .line2 {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(28px, 8vw, 48px);
+  letter-spacing: 3px;
+  background: linear-gradient(45deg, var(--pink-500), var(--pink-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 
+    0 3px 8px rgba(0,0,0,0.3),
+    0 0 25px rgba(244, 114, 182, 0.9);
+  line-height: 1.1;
+}
+
+.open .names {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope-wrapper.open .open-text {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.open-text {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(18px, 5vw, 24px);
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, var(--pink-400), var(--pink-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  opacity: 0.95;
+  transition: opacity 0.6s ease;
+  animation: fadeGlow 2.5s ease-in-out infinite;
+  max-width: 90%;
+  margin-top: 1rem;
+  text-shadow: 0 2px 12px rgba(255, 255, 255, 0.9);
+}
+
+@keyframes pulse {
+  0% { 
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 15px 35px rgba(252, 182, 206, 0.6), 0 0 30px rgba(244, 114, 182, 0.5);
+  }
+  50% { 
+    transform: translate(-50%, -50%) scale(1.15);
+    box-shadow: 0 25px 50px rgba(252, 182, 206, 0.8), 0 0 45px rgba(244, 114, 182, 0.7);
+  }
+  100% { 
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 15px 35px rgba(252, 182, 206, 0.6), 0 0 30px rgba(244, 114, 182, 0.5);
+  }
+}
+
+@keyframes fadeGlow {
+  0% { 
+    opacity: 0.8; 
+    text-shadow: 0 0 12px rgba(252, 182, 206, 0.8);
+    letter-spacing: 1px; 
+  }
+  50% { 
+    opacity: 1; 
+    text-shadow: 0 0 30px rgba(244, 114, 182, 1);
+    letter-spacing: 3px; 
+  }
+  100% { 
+    opacity: 0.8; 
+    text-shadow: 0 0 12px rgba(252, 182, 206, 0.8);
+    letter-spacing: 1px; 
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 15px;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .main-content {
+    min-height: 100vh;
+    padding: 10px;
+  }
+}

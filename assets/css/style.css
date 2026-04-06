@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Royal Princess Background */
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 25%,   #fff8e1 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    position: relative;
+}
+
+/* Magical gradient animation */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Twinkling Stars */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.star {
+    position: absolute;
+    color: #ffd700;
+    font-size: 12px;
+    animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Floating Crowns */
+.crowns {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.crown {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.1;
+    animation: floatCrown 6s ease-in-out infinite;
+}
+
+/* Royal Crown */
+.royal-crown {
+    position: absolute;
+    top: -80px;
+    font-size: 60px;
+    animation: crownFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px #ffd700);
+    z-index: 10;
+}
+
+@keyframes crownFloat {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+.container {
+    position: relative;
+    z-index: 20;
+}
+
+/* Princess Subtitle */
+.princess-subtitle {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #c2185b;
+    
+    text-align: center;
+    text-shadow: 0 0 10px gold;
+
+    /* ✨ ARC EFFECT */
+    display: inline-block;
+    white-space: nowrap;
+
+    /* This creates the curved shape */
+    transform-origin: center;
+}
+
+/* Each letter will be curved */
+.princess-subtitle span {
+    display: inline-block;
+    transform-origin: bottom center;
+}
+
+/* Enhanced Envelope - Royal Purple & Gold */
+.valentines {
+    position: relative;
+    top: 50px;
+    cursor: pointer;
+    animation: royalFloat 4s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.valentines:hover {
+    transform: scale(1.05);
+}
+
+@keyframes royalFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(1deg); }
+    66% { transform: translateY(-10px) rotate(-1deg); }
+}
+
+.envelope {
+    position: relative;
+    width: 340px;
+    height: 220px;
+    background: linear-gradient(145deg, #ba68c8, #ab47bc);
+    display: grid;
+    place-items: center;
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 40px rgba(186,104,200,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.envelope::before {
+    content: '';
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    background: linear-gradient(145deg, #ce93d8, #ba68c8);
+    transform: rotate(45deg);
+    top: -120px;
+    left: 50px;
+    border-radius: 40px 0 0 0;
+    box-shadow: 0 10px 30px rgba(186,104,200,0.3);
+}
+
+/* Royal Front Flap */
+.front {
+    position: absolute;
+    border-right: 200px solid #ce93d8;
+    border-top: 105px solid transparent;
+    border-bottom: 110px solid transparent;
+    left: 135px;
+    top: 8px;
+    width: 0;
+    height: 0;
+    z-index: 10;
+}
+
+.front::before {
+    position: absolute;
+    content: '';
+    border-left: 340px solid #e1bee7;
+    border-top: 215px solid transparent;
+    left: -135px;
+    top: -105px;
+}
+
+.ribbon {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    z-index: 15;
+    animation: ribbonWave 2s ease-in-out infinite;
+}
+
+@keyframes ribbonWave {
+    0%, 100% { transform: translateX(-50%) rotate(0deg); }
+    50% { transform: translateX(-50%) rotate(5deg); }
+}
+
+/* Magical Card */
+.card {
+    position: relative;
+    width: 280px;
+    height: 200px;
+    background: linear-gradient(145deg, #fff8e1, #fff3e0);
+    border-radius: 25px;
+    display: grid;
+    place-items: center;
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 4px solid #ffd700;
+    box-shadow: 
+        0 0 30px #ffd700,
+        0 0 60px rgba(255,215,0,0.5),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 3px dashed #696868;
+    border-radius: 20px;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255,193,7,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255,64,129,0.1) 0%, transparent 50%);
+}
+
+/* Royal Seal */
+.royal-seal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 32px;
+    filter: drop-shadow(0 0 10px #ffd700);
+    animation: sealGlow 2s ease-in-out infinite;
+}
+
+@keyframes sealGlow {
+    0%, 100% { filter: drop-shadow(0 0 10px #ffd700); }
+    50% { filter: drop-shadow(0 0 20px #ffd700) drop-shadow(0 0 30px #ffecb3); }
+}
+
+/* Magic Wand */
+.magic-wand {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 28px;
+    animation: sparkleWand 2s ease-in-out infinite;
+}
+
+@keyframes sparkleWand {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(5deg) scale(1.1); }
+    75% { transform: rotate(-5deg) scale(1.1); }
+}
+
+/* Open Animation */
+.valentines:hover .card,
+.valentines.open .card {
+    transform: translateY(-120px) scale(1.05);
+    box-shadow: 
+        0 30px 60px rgba(255,215,0,0.6),
+        0 0 80px rgba(255,215,0,0.8);
+}
+
+/* Royal Typography */
+.text1 {
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+    z-index: 5;
+}
+
+.text2 {
+    font-family: "Great Vibes", cursive;
+    font-size: 38px;
+    color: #ff69b4;
+    /* text-shadow: 
+        2px 2px 4px rgba(255,255,255,0.9),
+        0 0 20px #ff4081; */
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+/* Enhanced Petals */
+.petals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.petal {
+    position: absolute;
+    top: -50px;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(45deg, #ff4081, #f8bbd9);
+    border-radius: 50% 0 50% 50%;
+    opacity: 0.85;
+    box-shadow: 0 0 10px rgba(255,64,129,0.6);
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    100% { transform: translateY(120vh) rotate(720deg) scale(0.8); }
+}
+
+/* Floating Crowns Animation */
+@keyframes floatCrown {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-30px) rotate(10deg); }
+    66% { transform: translateY(-15px) rotate(-5deg); }
+}
+
+/* Glitter Effect */
+@keyframes glitter {
+    0%, 100% { 
+        box-shadow: 
+            0 0 20px #ffd700,
+            0 0 40px rgba(255,215,0,0.5);
+    }
+    50% { 
+        box-shadow: 
+            0 0 40px #ffd700,
+            0 0 80px rgba(255,235,179,0.8),
+            0 0 120px rgba(255,215,0,0.6);
+    }
+}
+
+.card {
+    animation: glitter 3s ease-in-out infinite;
+}
+
+/* Shadow */
+.valentines::before {
+    content: '';
+    position: absolute;
+    width: 360px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.15);
+    top: 290px;
+    left: -20px;
+    animation: shadowPulse 4s ease-in-out infinite;
+}
+
+@keyframes shadowPulse {
+    0%, 100% { transform: scaleX(1); opacity: 0.15; }
+    50% { transform: scaleX(0.9); opacity: 0.25; }
+}
+
+.G1 {
+            transform: translate(20px, 85px) rotate(-30deg);
+        }
+
+        .e1 {
+            transform: translate(13px, 60px) rotate(-25deg);
+        }
+
+        .e2 {
+            transform: translate(6px, 40px) rotate(-20deg);
+        }
+
+        .k1 {
+            transform: translate(3px, 23px) rotate(-15deg);
+        }
+
+        .s1 {
+            transform: translate(2px, 14px) rotate(-10deg);
+        }
+
+        .f {
+            transform: translate(1px, 8px) rotate(-5deg);
+        }
+
+        .o {
+            transform: translate(0px, 5px) rotate(0deg);
+        }
+
+        .r {
+            transform: translate(-1px, 8px) rotate(5deg);
+        }
+
+        .G2 {
+            transform: translate(-2px, 14px) rotate(10deg);
+        }
+
+        .e3 {
+            transform: translate(-3px, 25px) rotate(15deg);
+        }
+
+        .e4 {
+            transform: translate(-6px, 40px) rotate(20deg);
+        }
+
+        .k2 {
+            transform: translate(-14px, 60px) rotate(25deg);
+        }
+
+        .s2 {
+            transform: translate(-20px, 80px) rotate(30deg);
+        }
+
+        /* An inline-block element is placed as an inline
+         element (on the same line as adjacent content), 
+         but it behaves like a block element  */
+
+        span {
+            display: inline-block;
+        }
